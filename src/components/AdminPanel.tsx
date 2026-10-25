@@ -1796,6 +1796,11 @@ export function AdminPanel({ settings, setSettings, onExit, isExiting, cardId, s
                 value={settings.ganeshaIconUrl || ''}
                 onChange={handleImageChange('ganeshaIconUrl')}
               />
+              <ImageUploadField
+                label="OG Social Share Image (WhatsApp / Facebook Preview)"
+                value={settings.ogImageUrl || ''}
+                onChange={handleImageChange('ogImageUrl')}
+              />
               <div className="space-y-3 bg-white p-4 rounded-xl border border-stone-100 shadow-sm">
                 <label className="block text-sm font-medium text-stone-800 flex items-center gap-2">
                   Target Date (For Countdown)

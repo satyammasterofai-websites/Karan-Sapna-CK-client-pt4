@@ -157,7 +157,7 @@ export const defaultSettings: ECardSettings = {
     }
   ],
   heroImageUrl: 'https://i.ibb.co/PzwNNBD6/file-00000000ae748211873325400fc9bd40.png',
-  ogImageUrl: 'https://i.supaimg.com/b43c386e-b172-419b-9f38-7856075f2e77/83b635ed-6a4f-4172-84ba-b1f6f54a8b71.jpg',
+  ogImageUrl: 'https://cdn.phototourl.com/member/2026-10-25-67da288c-0fae-4bda-b359-01075d1a0647.png',
   ganeshaIconUrl: 'https://i.ibb.co/3mCLv4Zf/ganesh-idol-Tuby-Yj-SJ.png',
   musicUrl: 'https://www.image2url.com/r2/default/audio/1785770108745-a5a46950-d478-470f-a009-e4114ad223f9.mp3',
   targetDate: '2026-12-03',

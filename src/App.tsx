@@ -73,6 +73,16 @@ export default function App() {
     if (ogTitle) ogTitle.setAttribute('content', siteName);
   }, [cardId]);
 
+  // Sync OG and Twitter image meta tags dynamically
+  useEffect(() => {
+    if (settings.ogImageUrl) {
+      const ogImg = document.getElementById('og-image-meta');
+      if (ogImg) ogImg.setAttribute('content', settings.ogImageUrl);
+      const twImg = document.getElementById('twitter-image-meta');
+      if (twImg) twImg.setAttribute('content', settings.ogImageUrl);
+    }
+  }, [settings.ogImageUrl]);
+
   // Clear file caches whenever database/card ID changes to prevent cross-contamination
   useEffect(() => {
     uploadCache.clear();
