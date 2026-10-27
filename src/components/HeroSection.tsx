@@ -25,57 +25,88 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
       <div className="w-full flex flex-col items-center">
         {/* Hero Text Section (9:16 aspect ratio for mobile e-card) */}
         <div 
-          className="relative w-full aspect-[9/16] md:aspect-auto md:min-h-screen flex flex-col items-center justify-center px-6 py-12 md:py-20 text-center overflow-hidden shrink-0 bg-cover bg-center"
+          className="relative w-full aspect-[9/16] md:aspect-auto md:min-h-screen flex flex-col items-center justify-start pt-6 sm:pt-8 md:pt-14 pb-4 sm:pb-6 md:pb-14 px-4 sm:px-6 text-center overflow-hidden shrink-0 bg-cover bg-center"
           style={{
             backgroundImage: settings.heroImageUrl ? `url(${settings.heroImageUrl})` : 'none',
           }}
         >
           {/* Text Elements */}
-          <div className="flex flex-col items-center justify-center w-full z-10 text-[#7a103c]">
+          <div className="flex flex-col items-center justify-center w-full z-10 text-[#7a103c] my-auto">
             {settings.ganeshaIconUrl && (
               <img 
                 src={settings.ganeshaIconUrl} 
                 alt="Ganesha Icon" 
-                className="h-16 md:h-24 lg:h-28 w-auto object-contain drop-shadow-sm mb-4 md:mb-6"
+                className="h-18 sm:h-22 md:h-28 lg:h-32 w-auto object-contain drop-shadow-md mb-2 md:mb-3 mt-1 sm:mt-2"
                 referrerPolicy="no-referrer"
               />
             )}
-            <p className="font-serif text-sm md:text-xl tracking-widest text-[#8a1c47] mb-6 md:mb-10">
+            <p className="font-serif text-sm sm:text-base md:text-xl tracking-widest text-[#8a1c47] mb-2 md:mb-3 font-bold drop-shadow-xs">
               || Shree Ganeshaya Namah ||
             </p>
 
-            <p className="font-serif text-sm md:text-lg lg:text-xl leading-relaxed max-w-[280px] md:max-w-xl mx-auto mb-8 md:mb-12">
-              {settings.heroTopText || 'We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of'}
+            <p className="font-serif text-sm sm:text-base md:text-lg leading-snug max-w-[320px] md:max-w-xl mx-auto mb-3 md:mb-4 whitespace-pre-wrap text-[#7a103c] font-bold">
+              {settings.heroTopText}
             </p>
 
             <div className="flex flex-col items-center w-full">
-              <h1 className="font-['Great_Vibes',cursive] text-5xl md:text-7xl lg:text-8xl leading-tight py-2 md:py-3 text-[#7a103c] drop-shadow-sm whitespace-pre-wrap">
-                {settings.heroGroomName || 'Karan Vachheta'}
+              <h1 className="font-['Great_Vibes',cursive] text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight py-1 text-[#7a103c] drop-shadow-sm whitespace-pre-wrap font-bold tracking-wide">
+                {settings.heroGroomName}
               </h1>
-              <p className="font-serif text-xs md:text-base lg:text-lg tracking-wider uppercase mt-1 md:mt-2 whitespace-pre-wrap text-[#7a103c]">
-                {settings.heroGroomParents || 'S/o Mrs. Urmilaben\n& Mr. Ashok Bhai Vachheta'}
+              <p className="font-serif text-xs sm:text-sm md:text-base tracking-wide mt-1 whitespace-pre-wrap text-[#7a103c] font-medium leading-relaxed max-w-sm md:max-w-lg">
+                {settings.heroGroomParents}
               </p>
             </div>
 
-            <p className="font-serif text-base md:text-2xl italic my-6 md:my-10 text-[#8a1c47]">
+            <p className="font-serif text-base sm:text-lg md:text-2xl italic my-2 md:my-3 text-[#8a1c47] font-bold">
               {settings.heroMiddleText || 'with'}
             </p>
 
             <div className="flex flex-col items-center w-full">
-              <h1 className="font-['Great_Vibes',cursive] text-5xl md:text-7xl lg:text-8xl leading-tight py-2 md:py-3 text-[#7a103c] drop-shadow-sm whitespace-pre-wrap">
-                {settings.heroBrideName || 'Sapna Dhindhoriya'}
+              <h1 className="font-['Great_Vibes',cursive] text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight py-1 text-[#7a103c] drop-shadow-sm whitespace-pre-wrap font-bold tracking-wide">
+                {settings.heroBrideName}
               </h1>
-              <p className="font-serif text-xs md:text-base lg:text-lg tracking-wider uppercase mt-1 md:mt-2 pb-6 md:pb-10 whitespace-pre-wrap text-[#7a103c]">
-                {settings.heroBrideParents || 'D/o Mrs. Bhavnaben\n& Mr. Vijay Bhai Dhindhoriya'}
+              <p className="font-serif text-xs sm:text-sm md:text-base tracking-wide mt-1 pb-2 whitespace-pre-wrap text-[#7a103c] font-medium leading-relaxed max-w-sm md:max-w-lg">
+                {settings.heroBrideParents}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Scroll Down Indicator */}
-        <div className="w-full flex flex-col items-center justify-center py-6 gap-2">
-          <span className="text-xs tracking-widest text-stone-400 uppercase font-serif">Scroll Down</span>
-          <MoveDown className="w-5 h-5 text-stone-400" strokeWidth={1} />
+        {/* Scroll Down Indicator with Motion */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: [0, 8, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+          className="w-full flex flex-col items-center justify-center py-6 gap-2"
+        >
+          <span className="text-xs tracking-widest text-[#8a1c47] uppercase font-serif font-bold">Scroll Down</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <MoveDown className="w-5 h-5 text-[#8a1c47]" strokeWidth={2} />
+          </motion.div>
+        </motion.div>
+
+        {/* Dedicated Invitation Message Section */}
+        <div className="w-full py-16 px-6 flex flex-col items-center justify-center text-center bg-[#FAF5EA] border-y border-[#C9A15A]/20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl flex flex-col items-center"
+          >
+            <div className="text-[#C9A15A] mb-3">
+              <span className="font-serif text-lg flex items-center opacity-70">--- <span className="mx-2 text-xl">✿</span> ---</span>
+            </div>
+            <p className="font-serif text-base md:text-xl lg:text-2xl leading-relaxed text-[#7a103c] italic max-w-xl font-medium">
+              "{settings.heroBottomText || 'We cordially invite you to the wedding celebration organised on this auspicious occasion.'}"
+            </p>
+            <div className="text-[#C9A15A] mt-3 rotate-180">
+              <span className="font-serif text-lg flex items-center opacity-70">--- <span className="mx-2 text-xl">✿</span> ---</span>
+            </div>
+          </motion.div>
         </div>
 
         {/* Scratch Card Section */}
@@ -229,141 +260,6 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
             </div>
           </motion.div>
         </div>
-
-        {/* Family Invitation Section */}
-        <div id="family-section" className="w-full py-28 px-6 flex flex-col items-center text-center bg-[#FAF5EA]">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="w-full max-w-2xl flex flex-col items-center"
-          >
-            <p className="font-serif tracking-[0.25em] text-[#8D2342] text-[10px] md:text-xs uppercase font-bold mb-5">
-              {settings.familyInviteHeading || 'WITH LOVE'}
-            </p>
-            <h3 className="text-5xl md:text-6xl font-['Great_Vibes',cursive] text-[#8D2342] mb-12">
-              {settings.familyInviteSubHeading1 || 'The Families'}
-            </h3>
-            
-            <div className="w-full border-[1px] border-[#C9A15A]/80 rounded-[2rem] p-6 sm:p-10 flex flex-col items-center bg-[#FAF5EA]/60 backdrop-blur-sm shadow-md relative">
-              <div className="absolute -top-3.5 bg-[#FAF5EA] px-4 text-[#C9A15A] border border-[#C9A15A]/40 rounded-full py-0.5">
-                <span className="font-serif text-xs md:text-sm font-semibold text-[#8D2342] tracking-wider uppercase">👨‍👩‍👧‍👦 Family Details &amp; Blessings</span>
-              </div>
-              <p className="font-serif tracking-[0.2em] text-[#8D2342] text-[10px] md:text-xs uppercase font-bold mb-8 text-center w-full max-w-[280px] leading-relaxed">
-                {settings.familyInviteSubHeading2 || 'AWAITING YOUR GRACIOUS PRESENCE'}
-              </p>
-              
-              {/* Structured Groom and Bride Family Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full text-left">
-                {/* Groom Family Card */}
-                <div className="bg-white/90 p-5 rounded-2xl border border-[#C9A15A]/50 shadow-xs flex flex-col gap-2.5">
-                  <div className="flex items-center gap-2 border-b border-[#C9A15A]/30 pb-2">
-                    <span className="text-xl">🤵</span>
-                    <h4 className="font-serif font-bold text-sm md:text-base text-[#7a103c] tracking-wide uppercase">
-                      Groom's Side Family
-                    </h4>
-                  </div>
-                  <div className="text-xs sm:text-sm font-serif text-[#6B5A51] space-y-1.5">
-                    <p>
-                      <span className="font-bold text-[#8D2342] uppercase text-[10px] md:text-[11px] block tracking-wider">Grand Parents:</span>
-                      Grand Father: <span className="font-medium text-stone-900">{settings.groomGrandFather || 'Bansilal ji'}</span>
-                      <br />
-                      Grand Mother: <span className="font-medium text-stone-900">{settings.groomGrandMother || 'Santa Ben'}</span>
-                    </p>
-                    <p className="pt-1.5 border-t border-stone-100">
-                      <span className="font-bold text-[#8D2342] uppercase text-[10px] md:text-[11px] block tracking-wider">Parents:</span>
-                      Mr. Ashok Bhai Vachheta &amp; Mrs. Urmilaben Vachheta
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bride Family Card */}
-                <div className="bg-white/90 p-5 rounded-2xl border border-[#C9A15A]/50 shadow-xs flex flex-col gap-2.5">
-                  <div className="flex items-center gap-2 border-b border-[#C9A15A]/30 pb-2">
-                    <span className="text-xl">👰</span>
-                    <h4 className="font-serif font-bold text-sm md:text-base text-[#7a103c] tracking-wide uppercase">
-                      Bride's Side Family
-                    </h4>
-                  </div>
-                  <div className="text-xs sm:text-sm font-serif text-[#6B5A51] space-y-1.5">
-                    <p>
-                      <span className="font-bold text-[#8D2342] uppercase text-[10px] md:text-[11px] block tracking-wider">Grand Parents:</span>
-                      Grand Father: <span className="font-medium text-stone-900">{settings.brideGrandFather || 'Sankarlal ji'}</span>
-                      <br />
-                      Grand Mother: <span className="font-medium text-stone-900">{settings.brideGrandMother || 'Santa Devi'}</span>
-                    </p>
-                    <p className="pt-1.5 border-t border-stone-100">
-                      <span className="font-bold text-[#8D2342] uppercase text-[10px] md:text-[11px] block tracking-wider">Parents:</span>
-                      Mr. Vijay Bhai Dhindhoriya &amp; Mrs. Bhavnaben Dhindhoriya
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-[#C9A15A]/30 w-full text-center">
-                <p className="font-serif italic text-xs md:text-sm text-[#8D2342]">
-                  With best compliments from Vachheta &amp; Dhindhoriya Families
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Dress Code & Theme Section */}
-        {settings.showDressCode !== false && (
-          <div id="dress-code-section" className="w-full py-24 px-6 flex flex-col items-center text-center bg-[#DCE8D3]/50 border-t border-[#C9A15A]/20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full max-w-2xl flex flex-col items-center"
-            >
-              <div className="text-[#8D2342] mb-3 flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-[#C9A15A]" />
-                <span className="font-serif tracking-[0.25em] text-[10px] md:text-xs uppercase font-bold">
-                  CELEBRATION DRESS CODE &amp; THEME
-                </span>
-                <Sparkles className="w-4 h-4 text-[#C9A15A]" />
-              </div>
-              
-              <h3 className="text-4xl md:text-5xl font-['Great_Vibes',cursive] text-[#8D2342] mb-6 drop-shadow-sm">
-                {settings.dressCodeHeading || 'Dress Code & Royal Theme'}
-              </h3>
-
-              <div className="w-full bg-[#FAF5EA] border-2 border-[#C9A15A]/80 rounded-[2rem] p-8 md:p-10 shadow-lg relative flex flex-col items-center">
-                <div className="absolute -top-3.5 bg-[#FAF5EA] px-4 text-[#C9A15A] border border-[#C9A15A]/50 rounded-full py-0.5 text-xs font-serif flex items-center gap-1.5 shadow-xs">
-                  <span>👑</span>
-                  <span className="font-semibold tracking-wider text-[#8D2342] uppercase text-[10px]">Royal Rajput Heritage</span>
-                </div>
-
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-[#7a103c] to-[#8D2342] text-[#FAF5EA] shadow-md mb-4 border border-[#C9A15A]">
-                  <span className="text-2xl">👔</span>
-                </div>
-
-                <h4 className="font-serif text-xl md:text-2xl font-bold text-[#7a103c] tracking-wide mb-2">
-                  {settings.dressCodeTheme || 'Rajputi poshak and Rajput theme'}
-                </h4>
-
-                <div className="w-16 h-0.5 bg-[#C9A15A]/60 my-2" />
-
-                <p className="font-serif text-sm md:text-base text-[#6B5A51] max-w-md leading-relaxed mt-2 italic">
-                  {settings.dressCodeDescription || 'We warmly invite our esteemed family and friends to grace our wedding celebration in traditional Rajputi Poshak and royal Rajput theme.'}
-                </p>
-
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                  <span className="px-4 py-1.5 bg-white border border-[#C9A15A] text-[#8D2342] text-xs font-serif uppercase tracking-wider rounded-full shadow-xs font-semibold flex items-center gap-1.5">
-                    <span>👔</span> Rajputi Poshak
-                  </span>
-                  <span className="px-4 py-1.5 bg-white border border-[#C9A15A] text-[#8D2342] text-xs font-serif uppercase tracking-wider rounded-full shadow-xs font-semibold flex items-center gap-1.5">
-                    <span>👔</span> Rajput Theme
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
 
         {/* Venue Section */}
         <div id="venue-section" className="w-full py-28 px-6 flex flex-col items-center text-center bg-[#DCE8D3]">
