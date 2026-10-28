@@ -136,7 +136,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8 }}
-                  className="w-full relative aspect-[9/16] min-h-[620px] sm:min-h-0 sm:aspect-[16/9] rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-[#FAF5EA] ring-1 ring-[#C9A15A]/30 bg-stone-900 group"
+                  className="w-full relative aspect-[9/16] min-h-[640px] sm:min-h-0 sm:aspect-[16/9] rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-[#FAF5EA] ring-1 ring-[#C9A15A]/30 bg-stone-900 group"
                 >
                   {/* Background Image */}
                   <img
@@ -149,44 +149,44 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                     }}
                   />
                   {/* Dark Overlay for readability */}
-                  <div className="absolute inset-0 bg-black/35 sm:bg-gradient-to-r sm:from-black/65 sm:via-black/45 sm:to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-black/45 sm:bg-gradient-to-r sm:from-black/75 sm:via-black/50 sm:to-transparent pointer-events-none"></div>
                   
-                  {/* Text Content */}
-                  <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center text-center px-4 sm:px-6 pt-8 sm:pt-9 md:pt-10 pb-4 sm:pt-0 sm:bottom-0 sm:top-0 sm:w-1/2 sm:items-start sm:text-left sm:justify-center sm:pl-12 md:pl-16">
-                    <h3 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-['Great_Vibes',cursive] text-[#FAF5EA] leading-tight mb-1 sm:mb-2 drop-shadow-md px-2 max-w-full">
+                  {/* Text Content (Centered in the upper portion above caricature on mobile, left-aligned on desktop) */}
+                  <div className="absolute top-0 left-0 right-0 bottom-[34%] sm:bottom-0 sm:top-0 sm:w-1/2 z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-5 pb-2 sm:pt-0 sm:items-start sm:text-left sm:pl-12 md:pl-16">
+                    <h3 className="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-['Great_Vibes',cursive] text-[#FAF5EA] leading-tight mb-1.5 sm:mb-2 drop-shadow-lg px-2 max-w-full tracking-wide">
                       {event.heading}
                     </h3>
                     {event.showDescription !== false && event.description && (
-                      <p className="font-serif italic text-[#FAF5EA]/90 mb-2 sm:mb-3 text-sm sm:text-base md:text-lg leading-relaxed drop-shadow max-w-[290px] sm:max-w-md line-clamp-2 sm:line-clamp-none">
+                      <p className="font-serif italic text-[#FAF5EA]/95 mb-2.5 sm:mb-3 text-sm sm:text-base md:text-lg leading-relaxed drop-shadow-md max-w-[310px] sm:max-w-md line-clamp-2 sm:line-clamp-none">
                         "{event.description}"
                       </p>
                     )}
                     {(event.showDate !== false || event.showTime !== false || event.showVenue !== false) && (
-                       <div className="w-12 sm:w-14 h-px bg-[#FAF5EA]/50 mb-2 sm:mb-3 md:ml-0" />
+                       <div className="w-14 sm:w-16 h-px bg-[#FAF5EA]/60 mb-2.5 sm:mb-3 md:ml-0" />
                     )}
                     
                     {event.showDate !== false && event.date && (
                       <div className="mb-1.5 sm:mb-2.5 w-full">
                          <div className="inline-block mb-0.5">
-                           <p className="font-serif tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>DATE</p>
+                           <p className="font-serif tracking-[0.2em] uppercase text-xs sm:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>DATE</p>
                          </div>
-                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow font-medium leading-snug">{event.date}</p>
+                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow-md font-medium leading-snug">{event.date}</p>
                       </div>
                     )}
                     {event.showTime !== false && event.time && (
                       <div className="mb-1.5 sm:mb-2.5 w-full">
                          <div className="inline-block mb-0.5">
-                           <p className="font-serif tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>TIME</p>
+                           <p className="font-serif tracking-[0.2em] uppercase text-xs sm:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>TIME</p>
                          </div>
-                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow font-medium leading-snug">{event.time}</p>
+                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow-md font-medium leading-snug">{event.time}</p>
                       </div>
                     )}
                     {event.showVenue !== false && event.venue && (
                       <div className="mb-2 sm:mb-3 w-full">
                          <div className="inline-block mb-0.5">
-                           <p className="font-serif tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>VENUE</p>
+                           <p className="font-serif tracking-[0.2em] uppercase text-xs sm:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>VENUE</p>
                          </div>
-                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow font-medium leading-snug">{event.venue}</p>
+                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow-md font-medium leading-snug">{event.venue}</p>
                       </div>
                     )}
                     {(event.directionUrl || (event.venue && event.venue.length > 0)) && (
@@ -195,7 +195,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => onPauseMusic?.()}
-                        className="mt-2 inline-flex items-center gap-2 px-4 py-1.5 bg-transparent hover:bg-white/10 border border-[#FAF5EA]/60 hover:border-[#FAF5EA] text-[#FAF5EA] rounded-full text-xs sm:text-sm font-serif tracking-widest uppercase transition-all shadow-none hover:scale-105 backdrop-blur-[1px]"
+                        className="mt-1.5 inline-flex items-center gap-2 px-5 py-1.5 bg-black/25 hover:bg-black/40 border border-[#FAF5EA]/80 hover:border-[#FAF5EA] text-[#FAF5EA] rounded-full text-xs sm:text-sm font-serif tracking-widest uppercase transition-all shadow-md hover:scale-105 backdrop-blur-sm"
                       >
                         <MapPin className="w-3.5 h-3.5 text-[#C9A15A]" />
                         <span>Get Direction</span>
@@ -210,7 +210,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                       <motion.div
                         animate={{ y: [-3, 3, -3] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute z-20 pointer-events-none origin-bottom sm:hidden flex items-end justify-center left-1/2 -translate-x-1/2 bottom-0 w-full h-[35%] max-h-[220px]"
+                        className="absolute z-20 pointer-events-none origin-bottom sm:hidden flex items-end justify-center left-1/2 -translate-x-1/2 bottom-0 w-full h-[33%] max-h-[220px]"
                       >
                         <img 
                           src={event.caricatureUrl} 
