@@ -132,7 +132,7 @@ export const defaultSettings: ECardSettings = {
   showCreateYoursButton: true,
   createYoursButtonText: 'Create yours',
   openingBgColor: '#DCE8D3',
-  embeddedImageUrl: 'https://i.ibb.co/qY2S0Wfm/file-0000000038a882088dd609cbd193300b.png',
+  embeddedImageUrl: 'https://cdn.phototourl.com/member/2026-10-28-0089eb4b-4116-4045-9622-b4d7505a0eaa.png',
   embeddedImageTop: 46,
   embeddedImageLeft: 50,
   embeddedImageWidth: 84,

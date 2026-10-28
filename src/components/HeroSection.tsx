@@ -25,13 +25,13 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
       <div className="w-full flex flex-col items-center">
         {/* Hero Text Section (9:16 aspect ratio for mobile e-card) */}
         <div 
-          className="relative w-full aspect-[9/16] md:aspect-auto md:min-h-screen flex flex-col items-center justify-start pt-6 sm:pt-8 md:pt-14 pb-4 sm:pb-6 md:pb-14 px-4 sm:px-6 text-center overflow-hidden shrink-0 bg-cover bg-center"
+          className="relative w-full aspect-[9/16] md:aspect-auto md:min-h-screen flex flex-col items-center justify-start pt-7 sm:pt-9 md:pt-16 pb-3 sm:pb-5 md:pb-8 px-4 sm:px-6 text-center overflow-hidden shrink-0 bg-cover bg-center"
           style={{
             backgroundImage: settings.heroImageUrl ? `url(${settings.heroImageUrl})` : 'none',
           }}
         >
           {/* Text Elements */}
-          <div className="flex flex-col items-center justify-center w-full z-10 text-[#7a103c] my-auto">
+          <div className="flex flex-col items-center justify-center w-full z-10 text-[#7a103c] mt-3 sm:mt-4 md:mt-8 mb-auto">
             {settings.ganeshaIconUrl && (
               <img 
                 src={settings.ganeshaIconUrl} 
