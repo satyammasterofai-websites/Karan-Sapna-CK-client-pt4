@@ -23,20 +23,20 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
       style={{ backgroundColor: settings.sectionsBgColor || '#fdf2f8' }}
     >
       <div className="w-full flex flex-col items-center">
-        {/* Hero Text Section (9:16 aspect ratio for mobile e-card) */}
+        {/* Hero Text Section (Centered for all phones and previews) */}
         <div 
-          className="relative w-full aspect-[9/16] md:aspect-auto md:min-h-screen flex flex-col items-center justify-start pt-7 sm:pt-9 md:pt-16 pb-3 sm:pb-5 md:pb-8 px-4 sm:px-6 text-center overflow-hidden shrink-0 bg-cover bg-center"
+          className="relative w-full min-h-[100dvh] min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 md:p-8 text-center overflow-hidden shrink-0 bg-cover bg-center"
           style={{
             backgroundImage: settings.heroImageUrl ? `url(${settings.heroImageUrl})` : 'none',
           }}
         >
           {/* Text Elements */}
-          <div className="flex flex-col items-center justify-center w-full z-10 text-[#7a103c] mt-3 sm:mt-4 md:mt-8 mb-auto">
+          <div className="flex flex-col items-center justify-center w-full max-w-xl mx-auto z-10 text-[#7a103c] my-auto">
             {settings.ganeshaIconUrl && (
               <img 
                 src={settings.ganeshaIconUrl} 
                 alt="Ganesha Icon" 
-                className="h-18 sm:h-22 md:h-28 lg:h-32 w-auto object-contain drop-shadow-md mb-2 md:mb-3 mt-1 sm:mt-2"
+                className="h-16 sm:h-20 md:h-26 lg:h-30 w-auto object-contain drop-shadow-md mb-2 md:mb-3"
                 referrerPolicy="no-referrer"
               />
             )}
@@ -44,7 +44,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
               || Shree Ganeshaya Namah ||
             </p>
 
-            <p className="font-serif text-sm sm:text-base md:text-lg leading-snug max-w-[320px] md:max-w-xl mx-auto mb-3 md:mb-4 whitespace-pre-wrap text-[#7a103c] font-bold">
+            <p className="font-serif text-sm sm:text-base md:text-lg leading-snug max-w-[320px] md:max-w-xl mx-auto mb-2.5 sm:mb-3 md:mb-4 whitespace-pre-wrap text-[#7a103c] font-bold">
               {settings.heroTopText}
             </p>
 
@@ -52,7 +52,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
               <h1 className="font-['Great_Vibes',cursive] text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight py-1 text-[#7a103c] drop-shadow-sm whitespace-pre-wrap font-bold tracking-wide">
                 {settings.heroGroomName}
               </h1>
-              <p className="font-serif text-xs sm:text-sm md:text-base tracking-wide mt-1 whitespace-pre-wrap text-[#7a103c] font-medium leading-relaxed max-w-sm md:max-w-lg">
+              <p className="font-serif text-xs sm:text-sm md:text-base tracking-wide mt-0.5 whitespace-pre-wrap text-[#7a103c] font-medium leading-relaxed max-w-sm md:max-w-lg">
                 {settings.heroGroomParents}
               </p>
             </div>
@@ -65,7 +65,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
               <h1 className="font-['Great_Vibes',cursive] text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight py-1 text-[#7a103c] drop-shadow-sm whitespace-pre-wrap font-bold tracking-wide">
                 {settings.heroBrideName}
               </h1>
-              <p className="font-serif text-xs sm:text-sm md:text-base tracking-wide mt-1 pb-2 whitespace-pre-wrap text-[#7a103c] font-medium leading-relaxed max-w-sm md:max-w-lg">
+              <p className="font-serif text-xs sm:text-sm md:text-base tracking-wide mt-0.5 whitespace-pre-wrap text-[#7a103c] font-medium leading-relaxed max-w-sm md:max-w-lg">
                 {settings.heroBrideParents}
               </p>
             </div>
@@ -136,7 +136,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.8 }}
-                  className="w-full relative aspect-[9/16] sm:aspect-[16/9] rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-[#FAF5EA] ring-1 ring-[#C9A15A]/30 bg-stone-900 group"
+                  className="w-full relative aspect-[9/16] min-h-[620px] sm:min-h-0 sm:aspect-[16/9] rounded-[2rem] overflow-hidden shadow-2xl border-[3px] border-[#FAF5EA] ring-1 ring-[#C9A15A]/30 bg-stone-900 group"
                 >
                   {/* Background Image */}
                   <img
@@ -149,55 +149,55 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                     }}
                   />
                   {/* Dark Overlay for readability */}
-                  <div className="absolute inset-0 bg-black/30 sm:bg-gradient-to-r sm:from-black/60 sm:via-black/40 sm:to-transparent pointer-events-none"></div>
+                  <div className="absolute inset-0 bg-black/35 sm:bg-gradient-to-r sm:from-black/65 sm:via-black/45 sm:to-transparent pointer-events-none"></div>
                   
                   {/* Text Content */}
-                  <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center text-center px-4 sm:px-6 pt-5 pb-2 sm:pt-0 sm:bottom-0 sm:top-0 sm:w-1/2 sm:items-start sm:text-left sm:justify-center sm:pl-12 md:pl-16">
-                    <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-['Great_Vibes',cursive] text-[#FAF5EA] leading-tight mb-1 sm:mb-2 drop-shadow-md px-2 max-w-full">
+                  <div className="absolute top-0 left-0 right-0 z-10 flex flex-col items-center text-center px-4 sm:px-6 pt-8 sm:pt-9 md:pt-10 pb-4 sm:pt-0 sm:bottom-0 sm:top-0 sm:w-1/2 sm:items-start sm:text-left sm:justify-center sm:pl-12 md:pl-16">
+                    <h3 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-['Great_Vibes',cursive] text-[#FAF5EA] leading-tight mb-1 sm:mb-2 drop-shadow-md px-2 max-w-full">
                       {event.heading}
                     </h3>
                     {event.showDescription !== false && event.description && (
-                      <p className="font-serif italic text-[#FAF5EA]/90 mb-2 sm:mb-4 text-xs sm:text-sm md:text-base leading-relaxed drop-shadow max-w-[280px] sm:max-w-md line-clamp-2 sm:line-clamp-none">
+                      <p className="font-serif italic text-[#FAF5EA]/90 mb-2 sm:mb-3 text-sm sm:text-base md:text-lg leading-relaxed drop-shadow max-w-[290px] sm:max-w-md line-clamp-2 sm:line-clamp-none">
                         "{event.description}"
                       </p>
                     )}
                     {(event.showDate !== false || event.showTime !== false || event.showVenue !== false) && (
-                       <div className="w-10 sm:w-12 h-px bg-[#FAF5EA]/50 mb-2 sm:mb-3 md:ml-0" />
+                       <div className="w-12 sm:w-14 h-px bg-[#FAF5EA]/50 mb-2 sm:mb-3 md:ml-0" />
                     )}
                     
                     {event.showDate !== false && event.date && (
                       <div className="mb-1.5 sm:mb-2.5 w-full">
                          <div className="inline-block mb-0.5">
-                           <p className="font-serif tracking-[0.2em] uppercase text-[9px] sm:text-[10px] md:text-xs font-bold drop-shadow-md" style={{ color: event.detailsColor || '#C9A15A' }}>DATE</p>
+                           <p className="font-serif tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>DATE</p>
                          </div>
-                         <p className="font-serif tracking-wide text-[#FAF5EA] text-xs sm:text-sm md:text-base drop-shadow font-medium">{event.date}</p>
+                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow font-medium leading-snug">{event.date}</p>
                       </div>
                     )}
                     {event.showTime !== false && event.time && (
                       <div className="mb-1.5 sm:mb-2.5 w-full">
                          <div className="inline-block mb-0.5">
-                           <p className="font-serif tracking-[0.2em] uppercase text-[9px] sm:text-[10px] md:text-xs font-bold drop-shadow-md" style={{ color: event.detailsColor || '#C9A15A' }}>TIME</p>
+                           <p className="font-serif tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>TIME</p>
                          </div>
-                         <p className="font-serif tracking-wide text-[#FAF5EA] text-xs sm:text-sm md:text-base drop-shadow font-medium">{event.time}</p>
+                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow font-medium leading-snug">{event.time}</p>
                       </div>
                     )}
                     {event.showVenue !== false && event.venue && (
-                      <div className="mb-1.5 sm:mb-2.5 w-full">
+                      <div className="mb-2 sm:mb-3 w-full">
                          <div className="inline-block mb-0.5">
-                           <p className="font-serif tracking-[0.2em] uppercase text-[9px] sm:text-[10px] md:text-xs font-bold drop-shadow-md" style={{ color: event.detailsColor || '#C9A15A' }}>VENUE</p>
+                           <p className="font-serif tracking-[0.2em] uppercase text-[10px] sm:text-xs md:text-sm font-bold drop-shadow-md" style={{ color: event.detailsColor && event.detailsColor !== '#ff0000' ? event.detailsColor : '#E8D28A' }}>VENUE</p>
                          </div>
-                         <p className="font-serif tracking-wide text-[#FAF5EA] text-xs sm:text-sm md:text-base drop-shadow font-medium">{event.venue}</p>
+                         <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow font-medium leading-snug">{event.venue}</p>
                       </div>
                     )}
-                    {event.directionUrl && (
+                    {(event.directionUrl || (event.venue && event.venue.length > 0)) && (
                       <a
-                        href={event.directionUrl}
+                        href={event.directionUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => onPauseMusic?.()}
-                        className="mt-1.5 inline-flex items-center gap-1.5 px-3.5 py-1 bg-transparent hover:bg-white/10 border border-[#FAF5EA]/60 hover:border-[#FAF5EA] text-[#FAF5EA] rounded-full text-[10px] sm:text-xs font-serif tracking-widest uppercase transition-all shadow-none hover:scale-105 backdrop-blur-[1px]"
+                        className="mt-2 inline-flex items-center gap-2 px-4 py-1.5 bg-transparent hover:bg-white/10 border border-[#FAF5EA]/60 hover:border-[#FAF5EA] text-[#FAF5EA] rounded-full text-xs sm:text-sm font-serif tracking-widest uppercase transition-all shadow-none hover:scale-105 backdrop-blur-[1px]"
                       >
-                        <MapPin className="w-3 h-3 text-[#C9A15A]" />
+                        <MapPin className="w-3.5 h-3.5 text-[#C9A15A]" />
                         <span>Get Direction</span>
                       </a>
                     )}
@@ -206,19 +206,17 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                   {/* Caricature */}
                   {event.showCaricature && event.caricatureUrl && (
                     <>
-                      {/* Mobile Caricature (Controlled by Admin Sliders) */}
+                      {/* Mobile Caricature (Equal size, centered, positioned at bottom of event background) */}
                       <motion.div
-                        initial={{ x: "-50%" }}
-                        animate={{ y: [-3, 3, -3], x: "-50%" }}
+                        animate={{ y: [-3, 3, -3] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute z-20 pointer-events-none origin-bottom sm:hidden"
-                        style={{
-                          width: `${event.caricatureSize ?? 50}%`,
-                          bottom: `${event.caricatureBottom ?? 0}%`,
-                          left: `${event.caricatureLeft ?? 50}%`,
-                        }}
+                        className="absolute z-20 pointer-events-none origin-bottom sm:hidden flex items-end justify-center left-1/2 -translate-x-1/2 bottom-0 w-full h-[35%] max-h-[220px]"
                       >
-                        <img src={event.caricatureUrl} alt="Caricature overlay" className="w-full h-auto drop-shadow-2xl" />
+                        <img 
+                          src={event.caricatureUrl} 
+                          alt="Caricature overlay" 
+                          className="h-full w-auto max-w-[62%] object-contain object-bottom drop-shadow-2xl" 
+                        />
                       </motion.div>
 
                       {/* Desktop Caricature (Auto-fitted to 16:9 on the right) */}
@@ -227,7 +225,11 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                         className="absolute z-20 pointer-events-none origin-bottom hidden sm:flex items-end justify-center right-4 md:right-8 bottom-0 w-1/2 h-[95%]"
                       >
-                        <img src={event.caricatureUrl} alt="Caricature overlay" className="w-auto h-full object-contain drop-shadow-2xl object-bottom" />
+                        <img 
+                          src={event.caricatureUrl} 
+                          alt="Caricature overlay" 
+                          className="w-auto h-full object-contain drop-shadow-2xl object-bottom" 
+                        />
                       </motion.div>
                     </>
                   )}

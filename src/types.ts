@@ -237,7 +237,7 @@ export const defaultSettings: ECardSettings = {
       time: 'Ladies Sangeet: 2:00 PM | Reception Feast: 7:00 PM',
       venue: 'Rajshree farm house, Narora',
       imageUrl: 'https://i.ibb.co/7NC15FJh/Mehndi-bg.png',
-      directionUrl: '',
+      directionUrl: 'https://www.google.com/maps/search/?api=1&query=Rajshree+farm+house+Narora',
       showDescription: true,
       showDate: true,
       showTime: true,
