@@ -1134,8 +1134,12 @@ export function AdminPanel({ settings, setSettings, onExit, isExiting, cardId, s
                         type="text"
                         value={activeEl.venue || ''}
                         onChange={(e) => handleEventChange(activeEl.id, 'venue', e.target.value)}
+                        placeholder="Leave empty to hide both venue and Get Direction button"
                         className="w-full px-3 py-2 border border-stone-200 rounded-md focus:ring-stone-900 focus:border-stone-900 sm:text-sm text-stone-600"
                       />
+                      <p className="text-xs text-stone-400">
+                        Note: If venue is left empty or unchecked, the 'Get Direction' button will not appear on this event card.
+                      </p>
                     </div>
                     <div className="space-y-4 bg-white p-4 rounded-xl border border-stone-100 shadow-sm">
                       <div className="flex justify-between items-center border-b border-stone-100 pb-2">
@@ -1179,6 +1183,9 @@ export function AdminPanel({ settings, setSettings, onExit, isExiting, cardId, s
                         className="w-full px-3 py-2 border border-stone-200 rounded-md focus:ring-stone-900 focus:border-stone-900 sm:text-sm text-stone-600"
                         placeholder="https://maps.google.com/..."
                       />
+                      <p className="text-xs text-stone-400">
+                        Note: If this map link is left empty, the 'Get Direction' button will not appear on this event card.
+                      </p>
                     </div>
                   </div>
                 );
@@ -1226,11 +1233,28 @@ export function AdminPanel({ settings, setSettings, onExit, isExiting, cardId, s
                   <input
                     type="text"
                     name="mapAddress"
-                    value={settings.mapAddress || 'Grand Banquet Hall, New York'}
+                    value={settings.mapAddress || 'The Vasdaa Grand Near Lacchiwala National Park Dehradun'}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-stone-200 rounded-md focus:ring-stone-900 focus:border-stone-900 sm:text-sm text-stone-600"
                     placeholder="Enter the full address to show on the map"
                   />
+                </div>
+
+                <div className="space-y-3 bg-white p-4 rounded-xl border border-stone-100 shadow-sm">
+                  <label className="block text-sm font-medium text-stone-800">
+                    Get Direction Map Link (Google Maps Redirect URL)
+                  </label>
+                  <input
+                    type="text"
+                    name="googleMapUrl"
+                    value={settings.googleMapUrl || ''}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-stone-200 rounded-md focus:ring-stone-900 focus:border-stone-900 sm:text-sm text-stone-600"
+                    placeholder="https://share.google/wmtLIllz6B4AahbYN"
+                  />
+                  <p className="text-xs text-stone-400">
+                    Clicking 'Get Directions' in the 'Where We Celebrate' section will redirect to this Google Maps venue link.
+                  </p>
                 </div>
               </div>
             </div>

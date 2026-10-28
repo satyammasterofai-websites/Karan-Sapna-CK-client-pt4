@@ -189,9 +189,15 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                          <p className="font-serif tracking-wide text-[#FAF5EA] text-sm sm:text-base md:text-lg drop-shadow-md font-medium leading-snug">{event.venue}</p>
                       </div>
                     )}
-                    {(event.directionUrl || (event.venue && event.venue.length > 0)) && (
+                    {Boolean(
+                      event.venue &&
+                      event.venue.trim().length > 0 &&
+                      event.showVenue !== false &&
+                      event.directionUrl &&
+                      event.directionUrl.trim().length > 0
+                    ) && (
                       <a
-                        href={event.directionUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue)}`}
+                        href={event.directionUrl.trim()}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => onPauseMusic?.()}
@@ -279,7 +285,7 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
               {settings.mapHeading || 'Where We Celebrate'}
             </h3>
             <p className="font-serif text-lg md:text-xl text-[#6B5A51] mb-12 max-w-sm leading-relaxed">
-              {settings.mapAddress || 'Royal Garden, Jaipur, Rajasthan'}
+              {settings.mapAddress || 'The Vasdaa Grand Near Lacchiwala National Park Dehradun'}
             </p>
             
             {settings.showMap !== false && (
@@ -291,23 +297,28 @@ export function HeroSection({ settings, onOpenAdmin, onOpenCreateYours, onPauseM
                   scrolling="no" 
                   marginHeight={0} 
                   marginWidth={0} 
-                  src={"https://maps.google.com/maps?q=" + encodeURIComponent(settings.mapAddress || 'Royal Garden, Jaipur, Rajasthan') + "&t=&z=14&ie=UTF8&iwloc=&output=embed"}
+                  src={"https://maps.google.com/maps?q=" + encodeURIComponent(settings.mapAddress || 'The Vasdaa Grand Near Lacchiwala National Park Dehradun') + "&t=&z=14&ie=UTF8&iwloc=&output=embed"}
                   title="Event Location Map"
                   className="absolute top-0 left-0 w-full h-full grayscale-[20%] sepia-[10%]"
                 ></iframe>
               </div>
             )}
             
-            <a
-              href={settings.googleMapUrl || "https://maps.app.goo.gl/44GCcPMTqRYPiHhV9?g_st=aw"}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => onPauseMusic?.()}
-              className="px-10 py-4 bg-[#8D2342] text-[#FAF5EA] rounded-full font-serif tracking-[0.15em] shadow-[0_8px_25px_-8px_rgba(141,35,66,0.6)] hover:shadow-[0_8px_30px_-5px_rgba(141,35,66,0.5)] hover:scale-[1.02] transition-all text-[11px] sm:text-xs uppercase font-bold flex items-center gap-3 border border-[#C9A15A]/20"
-            >
-              <MapPin className="w-4 h-4" />
-              Get Directions
-            </a>
+            {Boolean(
+              (settings.googleMapUrl || (settings.mapAddress && settings.mapAddress.trim().length > 0)) &&
+              Boolean((settings.mapAddress || '').trim().length > 0 || settings.googleMapUrl)
+            ) && (
+              <a
+                href={settings.googleMapUrl || "https://share.google/wmtLIllz6B4AahbYN"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onPauseMusic?.()}
+                className="px-10 py-4 bg-[#8D2342] hover:bg-[#721c35] text-[#FAF5EA] rounded-full font-serif tracking-[0.15em] shadow-[0_8px_25px_-8px_rgba(141,35,66,0.6)] hover:shadow-[0_8px_30px_-5px_rgba(141,35,66,0.5)] hover:scale-[1.02] transition-all text-xs sm:text-sm uppercase font-bold flex items-center gap-3 border border-[#C9A15A]/20 cursor-pointer"
+              >
+                <MapPin className="w-4 h-4 text-[#C9A15A]" />
+                Get Directions
+              </a>
+            )}
           </motion.div>
         </div>
 
